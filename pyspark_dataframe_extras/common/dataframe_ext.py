@@ -164,13 +164,13 @@ def pretty_count(self):
     return f"{self.count():,}"
 
 
-DataFrame.groupByConditional = group_by_conditional
-DataFrame.numericFields = numeric_fields
-DataFrame.formatFields = format_fields
-DataFrame.frequencyCount = frequency_count
-DataFrame.showFrequencyCount = show_frequency_count
-DataFrame.percentileAgg = percentile_agg
-DataFrame.printCount = print_count
-DataFrame.showCSV = show_csv
-DataFrame.firstInGroup = first_in_group
-DataFrame.prettyCount = pretty_count
+DataFrame.groupByConditional = group_by_conditional  # type: ignore[attr-defined]
+DataFrame.numericFields = numeric_fields             # type: ignore[attr-defined]
+DataFrame.formatFields = format_fields               # type: ignore[attr-defined]
+DataFrame.frequencyCount = frequency_count           # type: ignore[attr-defined]
+DataFrame.showFrequencyCount = show_frequency_count  # type: ignore[attr-defined]
+DataFrame.percentileAgg = percentile_agg             # type: ignore[attr-defined]
+DataFrame.printCount = print_count                   # type: ignore[attr-defined]
+DataFrame.showCSV = show_csv                         # type: ignore[attr-defined]
+DataFrame.firstInGroup = first_in_group              # type: ignore[attr-defined]
+DataFrame.prettyCount = pretty_count                 # type: ignore[attr-defined]

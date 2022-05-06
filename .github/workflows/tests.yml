@@ -26,10 +26,17 @@ jobs:
         poetry install
     - name: Run Tests
       run: |
-        poetry run pytest
+        poetry run pytest --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
     - name: Run flake8
       run: |
         poetry run flake8 --ignore E501,E121,W503,W504,E712,W605 pyspark_dataframe_extras
     - name: Run mypy
       run: |
         poetry run mypy pyspark_dataframe_extras
+    - name: Upload pytest test results
+      uses: actions/upload-artifact@v3
+      with:
+          name: pytest-results-${{ matrix.python-version }}
+          path: junit/test-results-${{ matrix.python-version }}.xml
+      # Use always() to always run this step to publish test results when there are test failures
+      if: ${{ always() }}

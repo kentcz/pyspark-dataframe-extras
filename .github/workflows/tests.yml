@@ -2,7 +2,6 @@ name: Tests
 
 on:
   - push
-  - pull_request
 
 jobs:
   test:
@@ -13,14 +12,24 @@ jobs:
         python-version: ['3.7', '3.8']
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: Install poetry
+      run: |
+        pipx install poetry
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
+        cache: poetry
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install tox tox-gh-actions
-    - name: Test with tox
-      run: tox
+        poetry install
+    - name: Run Tests
+      run: |
+        poetry run pytest
+    - name: Run flake8
+      run: |
+        poetry run flake8 --ignore E501,E121,W503,W504,E712,W605 pyspark_dataframe_extras
+    - name: Run mypy
+      run: |
+        poetry run mypy pyspark_dataframe_extras

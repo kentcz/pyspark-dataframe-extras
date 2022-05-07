@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyspark-dataframe-extras"
-version = "0.1.0"
+version = "0.0.1"
 description = "Utility functions for PySpark"
 authors = ["Your Name <you@example.com>"]
 license = "MIT"

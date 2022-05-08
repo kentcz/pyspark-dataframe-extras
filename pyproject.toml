@@ -2,7 +2,7 @@
 name = "pyspark-dataframe-extras"
 version = "0.0.1"
 description = "Utility functions for PySpark"
-authors = ["Your Name <you@example.com>"]
+authors = ["kentcz <kentcz@hotmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
